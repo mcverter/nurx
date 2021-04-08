@@ -1,19 +1,20 @@
-interface Order {
-  items: Array<OrderItem>;
-}
 interface OrderItem {
   drug: string;
   quantity: number;
-}
-interface Assignment {
-  items: Array<OrderItem>;
-  pharmacy: Pharmacy;
 }
 interface InventoryItem {
   drug: string;
   cost: number;
 }
-class Pharmacy {
+
+export interface Order {
+  items: Array<OrderItem>;
+}
+export interface Assignment {
+  items: Array<OrderItem>;
+  pharmacy: Pharmacy;
+}
+export class Pharmacy {
   name: string;
   inventory: Array<InventoryItem>;
 
@@ -37,7 +38,7 @@ class Pharmacy {
   };
 }
 
-class Router {
+export class Router {
   pharmacies: Array<Pharmacy>;
 
   /* In case no pharmacy has the OrderItem, so this will return null 
@@ -84,65 +85,3 @@ class Router {
     return Object.keys(assignments).map((k) => assignments[k]);
   };
 }
-
-const maryOrder: Order = {
-  items: [
-    {
-      drug: "aspirin",
-      quantity: 5,
-    },
-    {
-      drug: "tylenol",
-      quantity: 2,
-    },
-    {
-      drug: "advil",
-      quantity: 16,
-    },
-  ],
-};
-
-const francescaOrder: Order = {
-  items: [
-    {
-      drug: "aspirin",
-      quantity: 5,
-    },
-    {
-      drug: "tylenol",
-      quantity: 2,
-    },
-  ],
-};
-
-const willheminaOrder: Order = {
-  items: [
-    {
-      drug: "aspirin",
-      quantity: 5,
-    },
-    {
-      drug: "tylenol",
-      quantity: 2,
-    },
-  ],
-};
-
-const redPharmacy: Pharmacy = new Pharmacy("red", [
-  { drug: "aspirin", cost: 10 },
-  { drug: "tylenol", cost: 10 },
-  { drug: "advil", cost: 10 },
-]);
-
-const bluePharmacy: Pharmacy = new Pharmacy("blue", [
-  { drug: "aspirin", cost: 5 },
-  { drug: "tylenol", cost: 50 },
-  { drug: "advil", cost: 1 },
-]);
-
-const router: Router = new Router([redPharmacy, bluePharmacy]);
-
-function printAssignmentArray(assigments: Array<Assignment>):void {
-  assigments.forEach(a=>console.log(a.pharmacy.name, a.items))
-}
-printAssignmentArray(router.assign(maryOrder));
