@@ -71,7 +71,26 @@ const router: Router = new Router([
   expensiveTylenolEverythingElseCheapPharmacy,
 ]);
 
+const maryExpected: Array<Assignment> = [
+  {
+    pharmacy: expensiveTylenolEverythingElseCheapPharmacy,
+    items: [
+      { drug: "aspirin", quantity: 5 },
+      { drug: "advil", quantity: 16 },
+    ],
+  },
+  {
+    pharmacy: averagePricesPharmacy,
+    items: [{ drug: "tylenol", quantity: 2 }],
+  },
+];
+
+console.log(
+  JSON.stringify(maryExpected) === JSON.stringify(router.assign(maryOrder))
+);
+
+/*
 function printAssignmentArray(assigments: Array<Assignment>): void {
   assigments.forEach((a) => console.log(a.pharmacy.name, a.items));
 }
-printAssignmentArray(router.assign(maryOrder));
+*/
