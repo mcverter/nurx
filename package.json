@@ -1,0 +1,27 @@
+{
+  "name": "nurx",
+  "version": "1.0.0",
+  "description": "Here is my solution to the take-home assignment to implement the Router for prescriptions.",
+  "main": "OrdersAPI.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+      },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcverter/nurx.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcverter/nurx/issues"
+  },
+  "homepage": "https://github.com/mcverter/nurx#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.4"
+  }
+}

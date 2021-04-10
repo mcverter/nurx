@@ -30,7 +30,6 @@ export class Pharmacy {
     const inventory: InventoryItem = this.inventory.find(
       (i) => i.drug === orderItem.drug
     );
-    debugger;
     if (!inventory) {
       return -1;
     }

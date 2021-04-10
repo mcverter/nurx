@@ -1,7 +1,11 @@
 {
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"],
   "sourceMap": "true",
   "compilerOptions": {
     "target": "es5",
-    "lib": [ "es6", "dom" ]
+    "lib": [ "es6", "dom" ],
+    "outDir": "./out",                        /* Redirect output structure to the directory. */
+    "rootDir": "./src"
   }
 }

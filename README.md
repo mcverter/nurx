@@ -32,4 +32,7 @@ That said, there are several ways to improve performance by adding to the specif
 It would be easier if we could build a mapping of drug name to InventoryItem. I did not know whether adding it would be acceptable to add this additional storage to the PharmacyObject
 
 - Router Looping over pharmacies
+
   For each medication, we have to loop over each pharmacy to check for the lowest cost. This is an incredibly wasteful procedure. It would be much better if, for each possible medication, we could develop an index of pharmacies, ordered by price for that medication. In fact, we would only need to store the first value of such an index. Given that each pharmacy has unlimited supply we know that, for example, PharmacyA is always the best place to buy aspirin and PharmacyB is always the best place to buy tylenol.
+
+Similarly, it might be useful to aggregate all of the drugs of a given type together -- fulfill all the tylenol orders together, then all the aspirin orders together, and so forth.
